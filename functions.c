@@ -84,8 +84,7 @@ int print_int(va_list args)
 		len++;
 	}
 
-	do
-	{
+	do {
 		rev_digits[count++] = n % 10;
 		n = n / 10;
 		len++;
@@ -97,4 +96,38 @@ int print_int(va_list args)
 	}
 
 	return (len);
+}
+
+
+
+/**
+ * print_binary - prints an unsigned int in binary form
+ *
+ * @args: list of arguments
+ *
+ * Return: numbe rof characters printed
+ */
+
+int print_binary(va_list args)
+{
+	int count = 0;
+	int bin_digit[32];
+	unsigned int n = va_arg(args, unsigned int);
+
+	if (n == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
+	while (n > 0)
+	{
+		bin_digit[count++] = n % 2;
+		n = n / 2;
+	}
+	while (--count >= 0)
+	{
+		_putchar('0' + bin_digit[count]);
+	}
+
+	return (count);
 }
