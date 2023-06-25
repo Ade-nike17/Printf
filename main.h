@@ -11,7 +11,7 @@ int print_string(va_list args);
 int print_char(va_list args);
 int print_int(va_list args);
 int print_percent(__attribute__ ((unused)) va_list args);
-
+int print_binary(va_list args);
 
 /**
  * struct printer - struct for printer functions
