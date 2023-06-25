@@ -18,11 +18,12 @@ int _printf(const char *format, ...)
 
 	/* printers array of type printer_t containing format specifiers */
 	printer_t printers[] = {
-	{"s", print_string},
-	{"c", print_char},
-	{"%", print_percent},
-	{"i", print_int},
-	{NULL, NULL}};
+		{"s", print_string},
+		{"c", print_char},
+		{"%", print_percent},
+		{"i", print_int},
+		{"d", print_int},
+		{NULL, NULL}};
 
 	va_start(args, format);
 
@@ -41,4 +42,3 @@ int _printf(const char *format, ...)
 
 	return (char_len);
 }
-

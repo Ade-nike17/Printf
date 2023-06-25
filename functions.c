@@ -19,7 +19,7 @@ int print_string(va_list args)
 	str = va_arg(args, char *);
 
 	if (str == NULL)
-	str = "(null)";
+		str = "(null)";
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
@@ -27,7 +27,6 @@ int print_string(va_list args)
 	}
 	return (i);
 }
-
 
 /**
  * print_char - function prints a single character
@@ -47,7 +46,6 @@ int print_char(va_list args)
 	return (1);
 }
 
-
 /**
  * print_percent - prints only percentage
  *
@@ -60,8 +58,6 @@ int print_percent(__attribute__((unused)) va_list args)
 {
 	return (_putchar('%'));
 }
-
-
 
 /**
  * print_int - prints an integer
@@ -82,11 +78,13 @@ int print_int(va_list args)
 		return (1);
 	}
 	if (n < 0)
-	{								_putchar('-');
+	{
+		_putchar('-');
 		n = -n;
 	}
 
-	do {
+	do
+	{
 		rev_digits[count++] = n % 10;
 		n = n / 10;
 		len++;
