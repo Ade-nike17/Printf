@@ -28,8 +28,8 @@ int main(void)
 	len3 = _printf("%");
 	printf("The return value is : %d\n", len3);
 
-	len = _printf("%d", 1024);
-	len2 = printf("%d", 1024);
+	len = _printf("%d", -1024);
+	len2 = printf("%d", -1024);
 
 	fflush(stdout);
 	if (len != len2)

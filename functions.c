@@ -81,6 +81,7 @@ int print_int(va_list args)
 	{
 		_putchar('-');
 		n = -n;
+		len++;
 	}
 
 	do
@@ -95,5 +96,5 @@ int print_int(va_list args)
 		_putchar('0' + rev_digits[count]);
 	}
 
-	return (len + (n < 0 ? 1 : 0));
+	return (len);
 }
