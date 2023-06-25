@@ -60,3 +60,42 @@ int print_percent(__attribute__((unused)) va_list args)
 {
 	return (_putchar('%'));
 }
+
+
+
+/**
+ * print_int - prints an integer
+ * @args: list of arguments
+ *
+ * Return: number of characters printed
+ */
+int print_int(va_list args)
+{
+	int n, count = 0;
+	int rev_digits[100];
+	int len = 0;
+
+	n = va_arg(args, int);
+	if (n == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
+	if (n < 0)
+	{								_putchar('-');
+		n = -n;
+	}
+
+	do {
+		rev_digits[count++] = n % 10;
+		n = n / 10;
+		len++;
+	} while (n > 0);
+
+	while (--count >= 0)
+	{
+		_putchar('0' + rev_digits[count]);
+	}
+
+	return (len + (n < 0 ? 1 : 0));
+}
