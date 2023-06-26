@@ -98,8 +98,6 @@ int print_int(va_list args)
 	return (len);
 }
 
-
-
 /**
  * print_binary - prints an unsigned int in binary form
  *
@@ -124,10 +122,10 @@ int print_binary(va_list args)
 		bin_digit[count++] = n % 2;
 		n = n / 2;
 	}
-	while (--count >= 0)
+	while (count >= 0)
 	{
-		_putchar('0' + bin_digit[count]);
+		_putchar('0' + bin_digit[--count]);
 	}
 
-	return (count);
+	return (count + 1);
 }

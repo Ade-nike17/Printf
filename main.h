@@ -29,4 +29,3 @@ typedef struct printer
 int format_printer(const char *format, va_list args, printer_t printers[]);
 
 #endif /* MAIN_H */
-
