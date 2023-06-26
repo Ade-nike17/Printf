@@ -103,18 +103,23 @@ int print_int(va_list args)
  *
  * @args: list of arguments
  *
- * Return: numbe rof characters printed
+ * Return: number of characters printed
  */
 
 int print_binary(va_list args)
 {
 	int count = 0;
-	int bin_digit[32];
+	int *bin_digit;
 	unsigned int n = va_arg(args, unsigned int);
+
+	bin_digit = malloc(sizeof(int) * (sizeof(unsigned int) * 8));
+	if (bin_digit == NULL)
+		return (-1);
 
 	if (n == 0)
 	{
 		_putchar('0');
+		free(bin_digit);
 		return (1);
 	}
 	while (n > 0)
@@ -122,10 +127,10 @@ int print_binary(va_list args)
 		bin_digit[count++] = n % 2;
 		n = n / 2;
 	}
-	while (count > 0)
+	while (--count >= 0)
 	{
-		_putchar('0' + bin_digit[--count]);
+		_putchar('0' + bin_digit[count]);
 	}
-
-	return (count);
+	free(bin_digit);
+	return (count + 1);
 }
