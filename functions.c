@@ -109,28 +109,27 @@ int print_int(va_list args)
 int print_binary(va_list args)
 {
 	int count = 0;
-	int *bin_digit;
 	unsigned int n = va_arg(args, unsigned int);
-
-	bin_digit = malloc(sizeof(int) * (sizeof(unsigned int) * 8));
-	if (bin_digit == NULL)
-		return (-1);
+	int bin_digits[32];
+	int i;
 
 	if (n == 0)
 	{
 		_putchar('0');
-		free(bin_digit);
-		return (1);
+		return 1;
 	}
+
 	while (n > 0)
 	{
-		bin_digit[count++] = n % 2;
+		bin_digits[count++] = n % 2;
 		n = n / 2;
 	}
-	while (--count >= 0)
+
+	for (i = count - 1; i >= 0; i--)
 	{
-		_putchar('0' + bin_digit[count]);
+		_putchar('0' + bin_digits[i]);
 	}
-	free(bin_digit);
-	return (count + 1);
+
+	return count;
 }
+
