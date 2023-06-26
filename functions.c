@@ -122,10 +122,10 @@ int print_binary(va_list args)
 		bin_digit[count++] = n % 2;
 		n = n / 2;
 	}
-	while (count >= 0)
+	while (count > 0)
 	{
 		_putchar('0' + bin_digit[--count]);
 	}
 
-	return (count + 1);
+	return (count);
 }
