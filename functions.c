@@ -4,7 +4,7 @@
 #include <stdarg.h>
 #include "main.h"
 
-/**
+/** 
  * print_string - writes a null terminated string to the output stream
  * @args: list of arguments
  *
@@ -28,6 +28,7 @@ int print_string(va_list args)
 	return (i);
 }
 
+
 /**
  * print_char - function prints a single character
  *
@@ -36,6 +37,7 @@ int print_string(va_list args)
  */
 
 /* writes a single char to the output stream */
+
 int print_char(va_list args)
 {
 	char c;
@@ -68,8 +70,6 @@ int print_percent(__attribute__((unused)) va_list args)
 int print_int(va_list args)
 {
 	int n, count = 0;
-	int rev_digits[100];
-	int len = 0;
 
 	n = va_arg(args, int);
 	if (n == 0)
@@ -81,22 +81,33 @@ int print_int(va_list args)
 	{
 		_putchar('-');
 		n = -n;
-		len++;
+		count++;
 	}
+	count += print_number(n);
+	
+	return (count);
+}
 
-	do
-	{
-		rev_digits[count++] = n % 10;
-		n = n / 10;
-		len++;
-	} while (n > 0);
 
-	while (--count >= 0)
+/**
+ * print_number - prints an integer number
+ * @num: numbers to print as an integer
+ *
+ * Return: count of nums printed
+ */
+
+int print_number(int num)
+{
+	int count = 0;
+
+	if (num / 10 != 0)
 	{
-		_putchar('0' + rev_digits[count]);
+		count += print_number(num / 10);
 	}
+	_putchar(num % 10 + '0');
+	count++;
 
-	return (len);
+	return (count);
 }
 
 /**
@@ -117,7 +128,7 @@ int print_binary(va_list args)
 	if (n == 0)
 	{
 		_putchar('0');
-		return 1;
+		return (1);
 	}
 
 	while (n > 0)
@@ -131,7 +142,7 @@ int print_binary(va_list args)
 		_putchar('0' + bin_digits[i]);
 	}
 
-	return count;
+	return (count);
 }
 
 int print_unsigned(va_list args)
