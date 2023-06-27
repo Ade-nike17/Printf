@@ -30,6 +30,8 @@ int main(void)
 
 	len = _printf("%d", -1024);
 	len2 = printf("%d", -1024);
+	_printf("Unsigned: [%u]\n", ui);
+	printf("Unsigned: [%u]\n", ui);
 
 	fflush(stdout);
 	if (len != len2)

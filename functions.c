@@ -84,7 +84,8 @@ int print_int(va_list args)
 		len++;
 	}
 
-	do {
+	do
+	{
 		rev_digits[count++] = n % 10;
 		n = n / 10;
 		len++;
@@ -133,3 +134,24 @@ int print_binary(va_list args)
 	return count;
 }
 
+int print_unsigned(va_list args)
+{
+	unsigned int n = va_arg(args, unsigned int);
+	int count = 0;
+
+	if (n == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
+
+	while (n > 0)
+	{
+		int digit = n % 10;
+		_putchar('0' + digit);
+		n = n / 10;
+		count++;
+	}
+
+	return (count);
+}

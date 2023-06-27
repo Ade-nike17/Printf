@@ -24,6 +24,7 @@ int _printf(const char *format, ...)
 		{"i", print_int},
 		{"d", print_int},
 		{"b", print_binary},
+		{"u", print_unsigned},
 		{NULL, NULL}};
 
 	va_start(args, format);
