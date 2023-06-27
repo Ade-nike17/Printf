@@ -16,6 +16,7 @@ int print_unsigned(va_list args);
 int print_octal(va_list args);
 int print_hexadecimal(va_list args);
 int print_hexadecimal_upper(va_list args);
+int print_String(va_list args);
 int print_percent(__attribute__ ((unused)) va_list args);
 
 
