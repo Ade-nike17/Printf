@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <stddef.h>
 #include <stdarg.h>
-#include <limits.h>
 #include "main.h"
 
 /**
@@ -70,6 +69,7 @@ int print_int(va_list args)
 {
 	int n, count = 0, len = 0;
 	int rev_digits[100];
+	int is_negative = 0;
 
 	n = va_arg(args, int);
 	if (n == 0)
@@ -79,30 +79,18 @@ int print_int(va_list args)
 	}
 	if (n < 0)
 	{
-		_putchar('-');
-		if (n == INT_MIN)
-		{
-			rev_digits[count++] = -(INT_MIN + 1) % 10;
-			len++;
-			n = -(INT_MIN + 1) / 10;
-		}
-		else
-		{
-			n = -n;
-			len++;
-		}
-	}
-	else if (n == INT_MAX)
-	{
-		rev_digits[count++] = INT_MAX % 10;
+		is_negative = 1;
+		n = -n;
 		len++;
-		n = INT_MAX / 10;
 	}
 	do {
 		rev_digits[count++] = n % 10;
 		n = n / 10;
 		len++;
 	} while (n > 0);
+
+	if (is_negative)
+		_putchar('-');
 
 	while (--count >= 0)
 	{
