@@ -26,6 +26,7 @@ int _printf(const char *format, ...)
 		{"b", print_binary},
 		{"u", print_unsigned},
 		{"o", print_octal},
+		{"x", print_hexadecimal},
 		{NULL, NULL}};
 
 	va_start(args, format);
