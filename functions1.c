@@ -39,6 +39,15 @@ int print_binary(va_list args)
 	return (count);
 }
 
+
+/**
+ * print_unsigned - prints an unsigned integer
+ *
+ * @args: list of arguments
+ *
+ * Return: number of characters printed
+ */
+
 int print_unsigned(va_list args)
 {
 	unsigned int n = va_arg(args, unsigned int);
@@ -66,6 +75,14 @@ int print_unsigned(va_list args)
 
 	return (count);
 }
+
+/**
+ * print_octal - prints an unsigned int in octal form
+ *
+ * @args: list of arguments
+ *
+ * Return: number of characters printed
+ */
 
 int print_octal(va_list args)
 {
