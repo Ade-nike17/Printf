@@ -10,7 +10,7 @@
 int main(void)
 {
 	int len, len2, len3;
-	unsigned int ui = 1234;
+	unsigned int ui = 189;
 
 	_printf("Character:[%c]\n", 'H');
 	printf("Character:[%c]\n", 'H');
@@ -33,7 +33,9 @@ int main(void)
 	len2 = printf("%d\n", -1024);
 	_printf("Unsigned: [%u]\n", ui);
 	printf("Unsigned: [%u]\n", ui);
-	
+
+	_printf("Unsigned octal:[%o]\n", ui);
+	printf("Unsigned octal:[%o]\n", ui);
 
 	fflush(stdout);
 	if (len != len2)

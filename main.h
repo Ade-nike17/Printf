@@ -13,6 +13,7 @@ int print_int(va_list args);
 int print_number(int num);
 int print_binary(va_list args);
 int print_unsigned(va_list args);
+int print_octal(va_list args);
 int print_percent(__attribute__ ((unused)) va_list args);
 
 
