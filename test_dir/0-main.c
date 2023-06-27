@@ -10,7 +10,7 @@
 int main(void)
 {
 	int len, len2, len3;
-	unsigned int ui = 1234;
+	unsigned int ui = 189;
 
 	_printf("Character:[%c]\n", 'H');
 	printf("Character:[%c]\n", 'H');
@@ -29,10 +29,19 @@ int main(void)
 	len3 = _printf("%");
 	printf("The return value is : %d\n", len3);
 
-	len = _printf("%d", -1024);
-	len2 = printf("%d", -1024);
+	len = _printf("%d\n", -1024);
+	len2 = printf("%d\n", -1024);
 	_printf("Unsigned: [%u]\n", ui);
 	printf("Unsigned: [%u]\n", ui);
+
+	_printf("Unsigned octal:[%o]\n", ui);
+	printf("Unsigned octal:[%o]\n", ui);
+
+	_printf("Unsigned hexadecimal: [%x]\n", ui);
+	printf("Unsigned hexadecimal: [%x]\n", ui);
+
+	_printf("Unsigned hexadecimal Uppercase: [%X]\n", ui);
+	printf("Unsigned hexadecimal Uppercase: [%X]\n", ui);
 
 	fflush(stdout);
 	if (len != len2)
@@ -41,7 +50,7 @@ int main(void)
 		fflush(stdout);
 		return (1);
 	}
-	printf("Yes! The return value of len is: %d and the return value of len2 is: %d", len, len2);
+	printf("Yes! The return value of len is: %d and the return value of len2 is: %d\n", len, len2);
 
 	return (0);
 }

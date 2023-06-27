@@ -39,7 +39,6 @@ int print_binary(va_list args)
 	return (count);
 }
 
-
 /**
  * print_unsigned - prints an unsigned integer
  *
@@ -131,15 +130,15 @@ int print_hexadecimal(va_list args)
 	{
 		int digit = n % 16;
 		if (digit < 10)
-			_putchar('0' + digit);
+			digits[count++] = '0' + digit;
 		else
-			_putchar('a' + digit - 10);
+			digits[count++] = 'a' + digit - 10;
 		n = n / 16;
 	}
 
 	for (i = count - 1; i >= 0; i--)
 	{
-		_putchar('0' + digits[i]);
+		_putchar(digits[i]);
 	}
 
 	return (count);
@@ -161,16 +160,20 @@ int print_hexadecimal_upper(va_list args)
 	while (n > 0)
 	{
 		int digit = n % 16;
+
 		if (digit < 10)
-			_putchar('0' + digit);
+			digits[count++] = digit;
 		else
-			_putchar('A' + digit - 10);
-		n = n /16;
+			digits[count++] = digit + 55;
+		n = n / 16;
 	}
 
 	for (i = count - 1; i >= 0; i--)
 	{
-		_putchar('0' + digits[i]);
+		if (digits[i] < 10)
+			_putchar('0' + digits[i]);
+		else
+			_putchar(digits[i]);
 	}
 
 	return (count);
