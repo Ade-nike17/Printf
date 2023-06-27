@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stddef.h>
 #include <stdarg.h>
+#include <limits.h>
 #include "main.h"
 
 /**
@@ -80,8 +81,17 @@ int print_int(va_list args)
 	if (n < 0)
 	{
 		_putchar('-');
-		n = -n;
-		len++;
+		if (n == INT_MIN)
+		{
+			rev_digits[count++] = -(INT_MIN + 1) % 10;
+			len++;
+			n = -(INT_MIN + 1) / 10;
+		}
+		else
+		{
+			n = -n;
+			len++;
+		}
 	}
 
 	do {
@@ -116,7 +126,7 @@ int print_binary(va_list args)
 	if (n == 0)
 	{
 		_putchar('0');
-		return 1;
+		return (1);
 	}
 
 	while (n > 0)
@@ -130,6 +140,6 @@ int print_binary(va_list args)
 		_putchar('0' + bin_digits[i]);
 	}
 
-	return count;
+	return (count);
 }
 
