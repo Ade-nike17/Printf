@@ -64,6 +64,7 @@ int print_unsigned(va_list args)
 	while (n > 0)
 	{
 		int digit = n % 10;
+
 		digits[count++] = digit;
 		n = n / 10;
 	}
@@ -100,6 +101,7 @@ int print_octal(va_list args)
 	while (n > 0)
 	{
 		int digit = n % 8;
+
 		digits[count++] = digit;
 		n = n / 8;
 	}

@@ -4,7 +4,7 @@
 #include <stdarg.h>
 #include "main.h"
 
-/** 
+/**
  * print_string - writes a null terminated string to the output stream
  * @args: list of arguments
  *
@@ -84,7 +84,7 @@ int print_int(va_list args)
 		count++;
 	}
 	count += print_number(n);
-	
+
 	return (count);
 }
 
