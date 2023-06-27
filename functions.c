@@ -92,7 +92,12 @@ int print_int(va_list args)
 			len++;
 		}
 	}
-
+	else if (n == INT_MAX)
+	{
+		rev_digits[count++] = INT_MAX % 10;
+		len++;
+		n = INT_MAX / 10;
+	}
 	do {
 		rev_digits[count++] = n % 10;
 		n = n / 10;
