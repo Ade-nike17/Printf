@@ -149,6 +149,8 @@ int print_unsigned(va_list args)
 {
 	unsigned int n = va_arg(args, unsigned int);
 	int count = 0;
+	int digits[32];
+	int i;
 
 	if (n == 0)
 	{
@@ -159,8 +161,35 @@ int print_unsigned(va_list args)
 	while (n > 0)
 	{
 		int digit = n % 10;
-		_putchar('0' + digit);
+		digits[count++] = digit;
 		n = n / 10;
+	}
+
+	for (i = count -1; i >= 0; i--)
+	{
+		_putchar('0' + digits[i]);
+	}
+
+	return (count);
+}
+
+
+int print_octal(va_list args)
+{
+	unsigned int n = va_arg(args, unsigned int);
+	int count = 0;
+
+	if (n == 0)
+	{
+		_putchar('0');
+		return(1);
+	}
+
+	while (n > 0)
+	{
+		int digit = n % 8;
+		_putchar('0' + digit);
+		n = n / 8;
 		count++;
 	}
 

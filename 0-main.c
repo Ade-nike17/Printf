@@ -29,10 +29,11 @@ int main(void)
 	len3 = _printf("%");
 	printf("The return value is : %d\n", len3);
 
-	len = _printf("%d", -1024);
-	len2 = printf("%d", -1024);
+	len = _printf("%d\n", -1024);
+	len2 = printf("%d\n", -1024);
 	_printf("Unsigned: [%u]\n", ui);
 	printf("Unsigned: [%u]\n", ui);
+	
 
 	fflush(stdout);
 	if (len != len2)
@@ -41,7 +42,7 @@ int main(void)
 		fflush(stdout);
 		return (1);
 	}
-	printf("Yes! The return value of len is: %d and the return value of len2 is: %d", len, len2);
+	printf("Yes! The return value of len is: %d and the return value of len2 is: %d\n", len, len2);
 
 	return (0);
 }
