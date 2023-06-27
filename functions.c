@@ -68,9 +68,8 @@ int print_percent(__attribute__((unused)) va_list args)
  */
 int print_int(va_list args)
 {
-	int n, count = 0;
+	int n, count = 0, len = 0;
 	int rev_digits[100];
-	int len = 0;
 
 	n = va_arg(args, int);
 	if (n == 0)
