@@ -113,6 +113,13 @@ int print_octal(va_list args)
 	return (count);
 }
 
+/**
+ * print_hexadecimal - prints an unsigned int in hexadecimal form
+ *
+ * @args: list of arguments
+ *
+ * Return: number of characters printed
+ */
 int print_hexadecimal(va_list args)
 {
 	unsigned int n = va_arg(args, unsigned int);
@@ -129,6 +136,7 @@ int print_hexadecimal(va_list args)
 	while (n > 0)
 	{
 		int digit = n % 16;
+
 		if (digit < 10)
 			digits[count++] = '0' + digit;
 		else
@@ -144,6 +152,13 @@ int print_hexadecimal(va_list args)
 	return (count);
 }
 
+/**
+ * print_hexadecimal_upper - prints an unsigned int in hexadecimal form
+ *
+ * @args: list of arguments
+ *
+ * Return: number of characters printed
+ */
 int print_hexadecimal_upper(va_list args)
 {
 	unsigned int n = va_arg(args, unsigned int);
@@ -178,4 +193,3 @@ int print_hexadecimal_upper(va_list args)
 
 	return (count);
 }
-
