@@ -28,7 +28,6 @@ int _printf(const char *format, ...)
 		{"o", print_octal},
 		{"x", print_hexadecimal},
 		{"X", print_hexadecimal_upper},
-		{"S", print_String},
 		{NULL, NULL}};
 
 	va_start(args, format);

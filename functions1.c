@@ -179,30 +179,3 @@ int print_hexadecimal_upper(va_list args)
 	return (count);
 }
 
-int print_String(va_list args)
-{
-	unsigned int i;
-	int count = 0;
-	char *string = va_arg(args, char *);
-
-	if (string == NULL)
-		string = "(null)";
-	
-	for (i = 0; string[i]; i++)
-	{
-		if (string[i] == 32 || string[i] >= 127)
-		{
-			_putchar('\\');
-			_putchar('x');
-			count = count + 2;
-			count = count + print_hexadecimal(string[i]);
-		}
-		else
-		{
-			_putchar(string[i]);
-			count++;
-		}
-
-	}
-	return (count);
-}
