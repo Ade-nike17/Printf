@@ -17,6 +17,8 @@ int print_ptr_addr(va_list args)
 	int count = 0;
 
 	ptr = va_arg(args, void *);
+	if (ptr == NULL)
+		return (NULL);
 	address = (unsigned long int)ptr;
 
 	count += _putchar('0');
