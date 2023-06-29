@@ -18,7 +18,8 @@ int print_ptr_addr(va_list args)
 
 	ptr = va_arg(args, void *);
 	if (ptr == NULL)
-		return (NULL);
+		return (_printf("(nil)"));
+
 	address = (unsigned long int)ptr;
 
 	count += _putchar('0');
